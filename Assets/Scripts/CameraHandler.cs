@@ -10,23 +10,34 @@ public class CameraHandler : MonoBehaviour
     public Transform playerBody;
     public Transform playerHead;
     
-    private InputManager _inputManager;
     
     private Vector2 _mMouseInput;
 
     private float _xRotation = 0.0f;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        _inputManager = InputManager.Instance;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    private Vector2 GetMouseDelta()
+    {
+        if (Mouse.current != null)
+        {
+            return Mouse.current.delta.ReadValue();
+        }
+        else
+        {
+            return Vector2.zero;
+        }
+    }
+
     private void Update()
     {
-        Vector2 mouseInput = _inputManager.GetMouseDelta() * _sensitivity;
+        Vector2 mouseInput =  GetMouseDelta() * _sensitivity;
 
         _xRotation -= mouseInput.y;
         _xRotation = Mathf.Clamp(_xRotation, -50f, 89f);
