@@ -8,6 +8,14 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Material missedAttack;
     [SerializeField] private float timeOfTheAttack = 2.0f;
     
+    public Material damageMaterial;
+    public Material enemyMaterial;
+
+    public MeshRenderer enemyRenderer;
+
+    float cooldown = 0f;
+    public float time = 0.05f;
+    
     private float currentTime = 0.0f;
     
     private GameObject enemy;
@@ -22,6 +30,18 @@ public class PlayerAttack : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
     }
 
+    private void Update()
+    {
+        if(cooldown > 0f)
+        {
+            cooldown -= Time.deltaTime;
+        }
+        else
+        {
+            enemyRenderer.material = enemyMaterial;
+        }
+    }
+
     public void Attack()
     {
         MeshRenderer MR = GetComponent<MeshRenderer>();
@@ -33,8 +53,18 @@ public class PlayerAttack : MonoBehaviour
 
         MR.material = touchedAttack;
         Health enemyHealth = enemy.GetComponent<Health>();
+
         if (enemyHealth != null)
+        {
             enemyHealth.health -= 10;
+            Debug.Log("attack");
+
+
+            enemyRenderer.material = damageMaterial;
+
+            cooldown = time;
+        }
+
     }
 
     private void Update()
@@ -52,6 +82,9 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
+        {
             enemy = collision.gameObject;
+            Debug.Log("collision");
+        }
     }
 }
