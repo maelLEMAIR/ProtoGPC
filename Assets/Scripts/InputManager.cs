@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-
     public static InputManager Instance { get; private set;  }
 
     private PlayerControls _playerControls;
@@ -21,11 +20,12 @@ public class InputManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        _playerControls.Enable();
+        _playerControls?.Enable();
     }
+
     private void OnDisable()
     {
-        _playerControls.Disable();
+        _playerControls?.Disable();
     }
 
     public Vector2 GetPlayerMovement()
