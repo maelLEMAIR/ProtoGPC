@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private Material touchedAttack;
     [SerializeField] private Material missedAttack;
@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
     
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
             enemy = collision.gameObject;
     }
 }

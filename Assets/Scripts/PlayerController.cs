@@ -5,14 +5,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float playerSpeed = 5.0f;
-    [SerializeField]
-    private float playerSprintSpeed = 10.0f;
-    [SerializeField]
-    private float jumpHeight = 1.5f;
-    [SerializeField]
-    private float gravityValue = -9.81f;
+    [SerializeField] private float playerSpeed = 5.0f;
+    [SerializeField] private float jumpHeight = 1.5f;
+    [SerializeField] private float gravityValue = -9.81f;
 
     private CharacterController _controller;
     private Vector3 _playerVelocity;
@@ -75,6 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            PlayerAttack.enabled = true;
             PlayerAttack.Attack();
         }
     }

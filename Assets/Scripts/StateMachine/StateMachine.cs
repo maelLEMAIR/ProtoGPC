@@ -23,6 +23,7 @@ public class StateMachine : MonoBehaviour
     [Header("Attack")] 
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject warningInfo;
+    [SerializeField] private EnemyAttack enemyAttack;
     private bool _finishedItsAttack = true;
     private bool _closeToThePlayer;
 
@@ -219,6 +220,9 @@ public class StateMachine : MonoBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance + 2.0f)
         {
             _closeToThePlayer = true;
+            
+            enemyAttack.enabled = true;
+            enemyAttack.Attack();
             _finishedItsAttack = true;
             warningInfo.SetActive(false);
         }
@@ -238,11 +242,7 @@ public class StateMachine : MonoBehaviour
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            int randomChoice =  Random.Range(0, 10);
-            if (randomChoice >= 8)
-                _wantAttack = true;
-            else
-                _arrivedToHisPoint = true;
+            _arrivedToHisPoint = true;
         }
     }
     
