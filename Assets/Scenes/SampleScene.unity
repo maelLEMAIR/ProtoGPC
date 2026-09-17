@@ -1785,7 +1785,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780621598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1850,6 +1850,9 @@ MonoBehaviour:
   touchedAttack: {fileID: 2100000, guid: 75d28d1a660f14d43ad61c849bc4dab8, type: 2}
   missedAttack: {fileID: 2100000, guid: 3df108a7e1eec89489f6b6e281b20755, type: 2}
   timeOfTheAttack: 0.5
+  playerRender: {fileID: 1424518052}
+  damageMaterial: {fileID: 2100000, guid: 5b1c00597960f6541a113fc3dab1250b, type: 2}
+  timeDamage: 0.1
 --- !u!1 &818079212
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,7 +3629,7 @@ GameObject:
   - component: {fileID: 1622830049}
   - component: {fileID: 1622830050}
   m_Layer: 0
-  m_Name: poing
+  m_Name: poingPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3654,7 +3657,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622830043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3719,6 +3722,9 @@ MonoBehaviour:
   touchedAttack: {fileID: 2100000, guid: 75d28d1a660f14d43ad61c849bc4dab8, type: 2}
   missedAttack: {fileID: 2100000, guid: 3df108a7e1eec89489f6b6e281b20755, type: 2}
   timeOfTheAttack: 1
+  damageMaterial: {fileID: 2100000, guid: 5b1c00597960f6541a113fc3dab1250b, type: 2}
+  enemyRenderer: {fileID: 722890984}
+  time: 0.1
 --- !u!65 &1622830050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4023,7 +4029,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
