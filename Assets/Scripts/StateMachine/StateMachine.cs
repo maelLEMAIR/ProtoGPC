@@ -50,6 +50,13 @@ public class StateMachine : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isInPostRound)
+        {
+            if ( currentState != EnumState.Idle)
+                currentState = EnumState.Idle;
+            return;
+        }
+        
         switch (currentState)
         {
             case EnumState.Idle:

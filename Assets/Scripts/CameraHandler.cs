@@ -37,6 +37,9 @@ public class CameraHandler : MonoBehaviour
 
     private void Update()
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+            return;
+        
         Vector2 mouseInput =  GetMouseDelta() * _sensitivity;
 
         _xRotation -= mouseInput.y;

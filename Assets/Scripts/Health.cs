@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
+    public int health { get; set; }
+    public int maxHealth = 100;
 
     void Start()
     {
-        health = 100;
+        health = maxHealth;
     }
 
     void Update()

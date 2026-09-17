@@ -49,11 +49,7 @@ public class PlayerAttack : MonoBehaviour
         if (enemyHealth != null)
         {
             enemyHealth.health -= 10;
-            Debug.Log("attack");
-
-
             enemyRenderer.material = damageMaterial;
-
             cooldown = time;
         }
 
@@ -85,7 +81,6 @@ public class PlayerAttack : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             enemy = collision.gameObject;
-            Debug.Log("collision");
         }
     }
 }
